@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Credit Card Holder</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .card-holder {
+    position: relative;
+    width: 340px;
+    height: 210px;
+    perspective: 1000px;
+  }
+
+  .credit-card {
+    width: 100%;
+    height: 100%;
+    background-color: #2c3e50;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(44, 62, 80, 0.7);
+    color: #fff;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: default;
+    user-select: none;
+    transform-style: preserve-3d;
+    animation: spin 3s linear infinite; /* 👈 Continuous spinning */
+  }
+
+  @keyframes spin {
+    0%   { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+  }
+
+  .chip {
+    width: 60px;
+    height: 45px;
+    background: linear-gradient(135deg, #ccc, #eee);
+    border-radius: 6px;
+    box-shadow:
+      inset -4px -4px 8px rgba(255,255,255,0.8),
+      inset 4px 4px 6px rgba(0,0,0,0.15);
+    position: relative;
+  }
+
+  .chip::before, .chip::after {
+    content: '';
+    position: absolute;
+    background: #bbb;
+    border-radius: 2px;
+  }
+
+  .chip::before {
+    width: 12px;
+    height: 30px;
+    top: 7px;
+    left: 10px;
+    box-shadow: 1px 0 1px rgba(255,255,255,0.7);
+  }
+
+  .chip::after {
+    width: 12px;
+    height: 30px;
+    top: 7px;
+    left: 28px;
+    box-shadow: 1px 0 1px rgba(255,255,255,0.7);
+  }
+
+  .card-number {
+    letter-spacing: 3.5px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 24px;
+    font-family: 'OCR A Std', monospace, monospace;
+  }
+
+  .card-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 28px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .card-info div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-label {
+    font-size: 0.65rem;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    user-select: none;
+  }
+
+  .cardholder-name, .expiry-date {
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  .bank-logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    align-self: flex-end;
+    user-select: none;
+  }
+
+  .credit-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent 70%);
+  }
+</style>
+</head>
+<body>
+  <div class="card-holder" role="region" aria-label="Credit card holder">
+    <div class="credit-card">
+      <div class="bank-logo">PiyuBank</div>
+      <div class="chip" aria-hidden="true"></div>
+      <div class="card-number" aria-label="Card number">0000 0000 0000 0000</div>
+      <div class="card-info">
+        <div>
+          <span class="card-label">Cardholder</span>
+          <span class="cardholder-name">your Name</span>
+        </div>
+        <div>
+          <span class="card-label">Expires</span>
+          <span class="expiry-date">00/00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

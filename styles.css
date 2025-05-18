@@ -1,0 +1,229 @@
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #a29bfe;
+  --background-color: #f5f6fa;
+  --white: #ffffff;
+  --gray: #dfe6e9;
+  --text-dark: #2d3436;
+  --text-light: #636e72;
+  --border-radius: 1rem;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  display: flex;
+  background-color: var(--background-color);
+  color: var(--text-dark);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.navbar {
+  width: 260px;
+  background-color: var(--white);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--gray);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.navbar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text-light);
+  padding: 0.8rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.navbar-nav a.active,
+.navbar-nav a:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.icon-container .hexagon {
+  mask-image: url('icons/hexagon.svg');
+}
+
+.icon.home { mask-image: url('icons/home.svg'); }
+.icon.statistics { mask-image: url('icons/statistics.svg'); }
+.icon.mail { mask-image: url('icons/mail.svg'); }
+.icon.user { mask-image: url('icons/user.svg'); }
+.icon.file { mask-image: url('icons/file.svg'); }
+.icon.layout { mask-image: url('icons/layout.svg'); }
+.icon.notification { mask-image: url('icons/notification.svg'); }
+.icon.menu { mask-image: url('icons/menu.svg'); }
+
+.navbar-footer {
+  background: var(--secondary-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  color: var(--white);
+  text-align: center;
+}
+
+.navbar-footer .container h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.navbar-footer a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: var(--white);
+  color: var(--primary-color);
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+main header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+main header h1 {
+  font-size: 1.8rem;
+}
+
+main header section {
+  display: flex;
+  gap: 1rem;
+}
+
+main header button {
+  background: var(--primary-color);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  color: var(--white);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+main header button:hover {
+  background: var(--secondary-color);
+}
+.logout {
+  margin-top: auto;
+  padding: 10px 20px;
+}
+
+.logout a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f80909;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.logout a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logout i {
+  font-size: 18px;
+}
+
+
+.charts-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+section[role="chart"] {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+section[role="chart"] h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+section[role="chart"] table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+section[role="chart"] table th,
+section[role="chart"] table td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--gray);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+
+  body {
+    flex-direction: column;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
